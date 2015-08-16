@@ -13,7 +13,9 @@ angular.module('flapperNews').controller('MainCtrl',['$scope', function($scope){
 
 	//Create a $scope function that will add an object into the posts array:
 	$scope.addPost = function(){
-		$scope.posts.push({title: 'a new post', upvotes: 0});
+		if(!$scope.title || $scope.title === ''){ return; }
+		$scope.posts.push({title: $scope.title, upvotes: 0}	);
+		$scope.title = '';
 	}
 
 }]);
