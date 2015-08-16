@@ -1,4 +1,17 @@
-var app = angular.module('flapperNews',[]);
+var app = angular.module('flapperNews',['ui.Router']);
+
+app.config([ '$stateProvider', '$urlrouteProvider', function($stateProvider, $urlrouteProvider){
+
+	$stateProvider
+		.state('home', {
+			url: '/home',
+			templateUrl: '/home.html',
+			controller: 'MainCtrl'
+		});
+
+	$urlrouteProvider.otherwise('home');
+
+}]);
 
 app.controller('MainCtrl',['$scope','posts', function($scope, posts){
 
